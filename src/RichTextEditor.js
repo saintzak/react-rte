@@ -101,6 +101,9 @@ export default class RichTextEditor extends Component {
       rootStyle,
       toolbarStyle,
       editorStyle,
+      disableToolbar,
+      onFocus,
+      onEditorFocus,
       ...otherProps // eslint-disable-line comma-dangle
     } = this.props;
     let editorState = value.getEditorState();
@@ -116,7 +119,7 @@ export default class RichTextEditor extends Component {
       readOnly = disabled;
     }
     let editorToolbar;
-    if (!readOnly) {
+    if (!readOnly && !disableToolbar) {
       editorToolbar = (
         <EditorToolbar
           rootStyle={toolbarStyle}
@@ -136,6 +139,18 @@ export default class RichTextEditor extends Component {
         <div className={combinedEditorClassName} style={editorStyle}>
           <Editor
             {...otherProps}
+            onFocus={(...args) => {
+              onEditorFocus({
+                onChange: this._onChange,
+                focusEditor: this._focus,
+                keyEmitter: this._keyEmitter,
+                get editorState() {
+                  console.log('getting editorState');
+                  return editorState;
+                }
+              }, ...args);
+              onFocus && onFocus();
+            }}
             blockStyleFn={composite(defaultBlockStyleFn, blockStyleFn)}
             customStyleMap={customStyleMap}
             editorState={editorState}
@@ -369,6 +384,7 @@ Object.assign(RichTextEditor, {
 
 export {
   EditorValue,
+  EditorToolbar,
   decorator,
   createEmptyValue,
   createValueFromString,

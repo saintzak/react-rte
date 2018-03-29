@@ -65,6 +65,13 @@ export default class EditorToolbar extends Component {
     this.props.keyEmitter.removeListener('keypress', this._onKeypress);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.keyEmitter !== nextProps.keyEmitter) {
+      this.props.keyEmitter.removeListener('keypress', this._onKeypress);
+      nextProps.keyEmitter.on('keypress', this._onKeypress);
+    }
+  }
+
   render() {
     let {className, toolbarConfig, rootStyle} = this.props;
     if (toolbarConfig == null) {
