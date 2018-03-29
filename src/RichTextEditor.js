@@ -146,7 +146,6 @@ export default class RichTextEditor extends Component {
                 focusEditor: this._focus,
                 keyEmitter: this._keyEmitter,
                 get editorState() {
-                  console.log('getting editorState');
                   return editorState;
                 }
               }, ...args);
@@ -222,6 +221,7 @@ export default class RichTextEditor extends Component {
         this._onChange(
           EditorState.push(editorState, newContent, 'insert-fragment')
         );
+
       }
       return true;
     }
