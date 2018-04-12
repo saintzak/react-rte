@@ -1,6 +1,7 @@
 /* @flow */
 import React, {Component} from 'react';
-import {CompositeDecorator, Editor, EditorState, Modifier, RichUtils, Entity} from 'draft-js';
+import {CompositeDecorator, EditorState, Modifier, RichUtils, Entity} from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
 import getDefaultKeyBinding from 'draft-js/lib/getDefaultKeyBinding';
 import changeBlockDepth from './lib/changeBlockDepth';
 import changeBlockType from './lib/changeBlockType';
