@@ -109,7 +109,7 @@ export default class RichTextEditor extends Component {
     } = this.props;
     let editorState = value.getEditorState();
     customStyleMap = customStyleMap ? {...styleMap, ...customStyleMap} : styleMap;
-
+    console.log('rendering thing');
     // If the user changes block type before entering any text, we can either
     // style the placeholder or hide it. Let's just hide it for now.
     let combinedEditorClassName = cx({
