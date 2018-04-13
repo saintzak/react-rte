@@ -29,9 +29,7 @@
     "draft-js-import-markdown": ">=0.3.0",
     "draft-js-plugins-editor": "^2.0.4",
     "draft-js-utils": ">=0.2.0",
-    "immutable": "^3.8.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "immutable": "^3.8.1"
   },
   "peerDependencies": {
     "react": "0.14.x || 15.x.x || 16.x.x",

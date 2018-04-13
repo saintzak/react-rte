@@ -160,7 +160,7 @@ export default class RichTextEditor extends Component {
             onTab={this._onTab}
             onChange={this._onChange}
             placeholder={placeholder}
-            ref="editor"
+            ref={ref => this.editor = ref}
             spellCheck={true}
             readOnly={readOnly}
           />
@@ -344,7 +344,7 @@ export default class RichTextEditor extends Component {
   }
 
   _focus() {
-    this.refs.editor.focus();
+    this.editor.focus();
   }
 }
 
