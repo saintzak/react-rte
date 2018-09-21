@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "build": "npm run build-lib && npm run build-dist",
+    "build-dev": "rimraf dist && webpack --config ./webpack.dev.config.js",
     "build-dist": "rimraf dist && webpack -p",
     "build-lib": "rimraf lib && babel src --ignore \"_*\" --out-dir lib --copy-files",
     "lint": "eslint --max-warnings 0 .",
@@ -29,7 +30,9 @@
     "draft-js-import-markdown": ">=0.3.0",
     "draft-js-plugins-editor": "^2.0.4",
     "draft-js-utils": ">=0.2.0",
-    "immutable": "^3.8.1"
+    "immutable": "^3.8.1",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
   },
   "peerDependencies": {
     "react": "0.14.x || 15.x.x || 16.x.x",
@@ -74,8 +77,7 @@
     "editor"
   ],
   "author": "sstur@me.com",
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Adam J. McIntyre",
       "url": "https://github.com/amcintyre-cs"
     },

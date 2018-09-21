@@ -141,7 +141,7 @@ export default class RichTextEditor extends Component {
           <Editor
             {...otherProps}
             onFocus={(...args) => {
-              onEditorFocus({
+              onEditorFocus && onEditorFocus({
                 onChange: this._onChange,
                 focusEditor: this._focus,
                 keyEmitter: this._keyEmitter,
@@ -346,6 +346,7 @@ export default class RichTextEditor extends Component {
   }
 
   _focus() {
+    console.log('attempting to focus', this.randomId);
     this.editor.focus();
   }
 }
