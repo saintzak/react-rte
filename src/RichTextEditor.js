@@ -109,7 +109,7 @@ export default class RichTextEditor extends Component {
       ...otherProps // eslint-disable-line comma-dangle
     } = this.props;
     let editorState = value.getEditorState();
-    customStyleMap = customStyleMap ? { ...styleMap, ...customStyleMap } : styleMap;
+    customStyleMap = customStyleMap ? {...styleMap, ...customStyleMap} : styleMap;
     // If the user changes block type before entering any text, we can either
     // style the placeholder or hide it. Let's just hide it for now.
     let combinedEditorClassName = cx({
@@ -160,9 +160,7 @@ export default class RichTextEditor extends Component {
             onTab={this._onTab}
             onChange={this._onChange}
             placeholder={placeholder}
-            ref={(el) => {
-              this.editor = el;
-            }}
+            ref={ref => this.editor = ref}
             spellCheck={true}
             readOnly={readOnly}
           />
@@ -346,7 +344,6 @@ export default class RichTextEditor extends Component {
   }
 
   _focus() {
-    console.log('attempting to focus', this.randomId);
     this.editor.focus();
   }
 }

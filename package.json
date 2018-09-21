@@ -77,7 +77,8 @@
     "editor"
   ],
   "author": "sstur@me.com",
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Adam J. McIntyre",
       "url": "https://github.com/amcintyre-cs"
     },
